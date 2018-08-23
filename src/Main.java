@@ -25,5 +25,9 @@ public class Main {
             case "A":
                 System.out.println(a+1);
         }
+
+        if(0.1+0.2==0.3){
+            System.out.println("yes");
+        }
     }
 }

@@ -36,6 +36,7 @@ public class QuickSort {
         quicksort(num,low,end);
         show(num);
     }
+
     public static void show(int[] num){
         for (int i = 0;i<num.length;i++){
             System.out.print(num[i]+" ");
