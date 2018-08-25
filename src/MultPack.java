@@ -1,8 +1,4 @@
 /**
- * @program: helloworld
- * @author: wqdong
- * @description: review of gmcm2015 problem D
- * @create: 2018-08-15 08:05
  **/
 public class MultPack {
     public  static  int MAX = 10000;

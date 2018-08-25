@@ -45,7 +45,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args){
-        int[] number = {100,-10,23,56,2,-4,9,15,15,17,100};
+        int[] number = {10,-10,23,5,6,12,-4,39,25,15,17};
         quicksort(number,0,number.length-1);
     }
 }

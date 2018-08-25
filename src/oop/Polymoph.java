@@ -1,8 +1,6 @@
+package oop;
+
 /**
- * @program: helloworld
- * @description: 多态
- * @author: wqdong
- * @create: 2018-08-17 20:38
  **/
 
 class animal{
@@ -10,6 +8,10 @@ class animal{
 
     animal(String name){
        this.name = name;
+    }
+
+    public String getName(){
+        return  name;
     }
 
     public void fun(){
@@ -57,16 +59,18 @@ class lady {
 
     public void ladyfun(){
         pet.fun();
+        System.out.println("动物的名字是："+name);
     }
 
 }
 public class Polymoph {
     public static void main(String[] args){
         cat c = new cat("小橘","blue");
-        dog d = new dog("小黑","black");
+        animal d = new animal("小白");
+        d = new dog("小黑","black");
 
-        lady l1 = new lady("bai",c);
-        lady l2 = new lady("li",d);
+        lady l1 = new lady(c.getName(),c);
+        lady l2 = new lady(d.getName(),d);
 
         l1.ladyfun();
         l2.ladyfun();
