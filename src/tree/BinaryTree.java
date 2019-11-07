@@ -47,6 +47,9 @@ public class BinaryTree {
     System.out.print("\n二叉树后序遍历 ");
     postOrder_itv(root);
 
+    findMaxNodeval(root);
+    findMinNodeval(root);
+
     System.out.println("\n二叉树的最大深度 = " + maxDepth_rec(root));
     System.out.println("二叉树的最大深度 = " + maxDepth_itv(root));
 
@@ -204,6 +207,26 @@ public class BinaryTree {
       depth++;
     }
     return depth;
+  }
+
+  public static void findMaxNodeval(TreeNode root){
+    TreeNode curr = root;
+    TreeNode maxNode = curr;
+    while (curr != null){
+      maxNode = curr;
+      curr = curr.right;
+    }
+    System.out.print("\n二叉树结点最大值是 " + maxNode.val + "\n");
+  }
+
+  public static void findMinNodeval(TreeNode root){
+    TreeNode curr = root;
+    TreeNode minNode = curr;
+    while (curr != null){
+      minNode = curr;
+      curr = curr.left;
+    }
+    System.out.print("二叉树结点最小值是 " + minNode.val);
   }
 
   public static class TreeNode {
