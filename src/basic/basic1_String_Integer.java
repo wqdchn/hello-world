@@ -19,6 +19,15 @@ public class basic1_String_Integer {
     System.out.println(s1 == s3);//false
     System.out.println(s2 == s3);//true
 
+    System.out.println(s1.equals(s3));//true
+    System.out.println(s1.equals(s2));//true
+    System.out.println(s2.equals(s3));//true
+
+//  String类里面是这样重写equals()方法的实现的：
+//  用当前的这个字符串对象和指定的字符串对象比较，
+//  指定的字符串对象不能为空并且这个对象的字符序列和当前这个字符串对象的字符串序列一样，
+//  如果这些条件都满足，那么这两个字符串对象就是相等的。
+
     s1 = "你好";
     s2 = "世界";
 
