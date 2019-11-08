@@ -4,7 +4,7 @@ package basic;
  * @program: hello-world
  * @description: String和Integer
  *
- * 栈、常量池、堆
+ * 栈、常量池、堆，jdk_1.8.0_161
  * @author: wqdong
  * @create: 2019-11-07 14:17
  **/
@@ -22,6 +22,11 @@ public class basic1_String_Integer {
     System.out.println(s1.equals(s3));//true
     System.out.println(s1.equals(s2));//true
     System.out.println(s2.equals(s3));//true
+
+    String s6 = new String("1") + new String("1");
+    s6.intern();
+    String s7 = "11";
+    System.out.println(s6 == s7);//true
 
 //  String类里面是这样重写equals()方法的实现的：
 //  用当前的这个字符串对象和指定的字符串对象比较，
