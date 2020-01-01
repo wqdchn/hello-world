@@ -20,18 +20,24 @@ public class linkedlist_test1 {
 
   public static void main(String[] args) throws Exception {
 
-    ListNode head = new ListNode(1);
-    head.next = new ListNode(2);
-    head.next.next = new ListNode(3);
-    head.next.next.next = new ListNode(4);
-    head.next.next.next.next = new ListNode(5);
+    ListNode head = new ListNode(-1);
+    head.next = new ListNode(1);
+    head.next.next = new ListNode(2);
+    head.next.next.next = new ListNode(3);
+    head.next.next.next.next = new ListNode(4);
+    head.next.next.next.next.next = new ListNode(5);
 
-    head = reverse_list(head);
+    reverse_list(head);
     show_list(head);
 
     System.out.println();
 
     reverse_list_from_to(head, 1, 3);
+    show_list(head);
+
+    System.out.println();
+
+    reverse_list_every_k(head, 2);
     show_list(head);
 
   }
@@ -44,16 +50,18 @@ public class linkedlist_test1 {
   }
 
 
-  public static ListNode reverse_list(ListNode head) {
+  public static void reverse_list(ListNode head) {
 
-    ListNode rev_hear = null;
-    while (head != null) {
-      ListNode temp = head.next;
-      head.next = rev_hear;
-      rev_hear = head;
-      head = temp;
+    ListNode pre = head;
+    ListNode curr = pre.next;
+    pre = null;
+    while (curr != null) {
+      ListNode temp = curr.next;
+      curr.next = pre;
+      pre = curr;
+      curr = temp;
     }
-    return rev_hear;
+    head.next = pre;
   }
 
   public static void reverse_list_from_to(ListNode head, int from_index, int to_index)
@@ -100,5 +108,49 @@ public class linkedlist_test1 {
     }
 
     from.next = to_next;
+  }
+
+  public static void reverse_list_every_k(ListNode head, int k) {
+    ListNode temp = head.next;
+    int step = 0;
+
+    ListNode start_k = null;
+    ListNode start_kpre = head;
+    ListNode end_k = null;
+
+    while (temp != null) {
+      ListNode temp_next = temp.next;
+      if (step == 0) {
+        start_k = temp;
+        step++;
+      } else if (step == k - 1) {
+        end_k = temp;
+        ListNode pre = start_k;
+        ListNode curr = start_k.next;
+
+        if (curr == null) {
+          break;
+        }
+
+        ListNode end_knext = end_k.next;
+        while (curr != end_knext) {
+          ListNode next = curr.next;
+          curr.next = pre;
+          pre = curr;
+          curr = next;
+        }
+
+        start_kpre.next = end_k;
+        start_k.next = end_knext;
+
+        // 当前的k个为一组以及翻转完毕，开始下一轮的k个一组翻转
+        start_kpre = start_k;
+        step = 0;
+      } else {
+        step++;
+      }
+
+      temp = temp_next;
+    }
   }
 }
