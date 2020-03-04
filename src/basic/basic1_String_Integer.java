@@ -1,7 +1,5 @@
 package basic;
 
-import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
-
 /**
  * @program: hello-world
  * @description: String和Integer
@@ -19,6 +17,7 @@ public class basic1_String_Integer {
     String s2 = "1234";
     System.out.println(s1 == s2);// true
     System.out.println(System.identityHashCode(s1));// 1836019240
+    System.out.println(System.identityHashCode(s1.intern())); // 1836019240
     System.out.println(System.identityHashCode(s2));// 1836019240
 
     String s3 = new String("ab") + new String("cd");
