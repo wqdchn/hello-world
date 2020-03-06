@@ -2,7 +2,7 @@ package other;
 
 /**
  * @program: hello-world
- * @description: 检查字符串是不是IPv4地址
+ * @description: 妫�鏌ュ瓧绗︿覆鏄笉鏄疘Pv4鍦板潃
  * @author: wqdong
  * @create: 2020-03-06 19:18
  **/
