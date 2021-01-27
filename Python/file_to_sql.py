@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-df = pd.read_excel(os.getcwd() + '/data/data.xlsx', 'Sheet1')
+df = pd.read_excel(os.getcwd() + '/data/data2.xlsx', '明细')
 
 table_nm = '表名'
 
@@ -15,4 +15,7 @@ for index, row in df.iterrows():
     else:
         sql_texts.append(str(tuple(str(row.values).replace('\'', '').strip('[').strip(']').split(' '))))
 
-print(','.join(sql_texts))
+# print(','.join(sql_texts))
+
+f = open(os.getcwd() + '/data/sql.txt','w')
+f.writelines(','.join(sql_texts))
