@@ -1,12 +1,7 @@
 import pandas as pd
 import os
 
-column_list = []
-df_column = pd.read_excel(os.getcwd() + '/data/data.xlsx', 'Sheet1').columns
-
-for i in df_column:
-    column_list.append(i)
-converter = {col: str for col in column_list}
+converter = {x:str for x in pd.read_excel(os.getcwd() + '/data/data.xlsx','Sheet1').columns}
 
 df = pd.read_excel(os.getcwd() + '/data/data.xlsx', 'Sheet1', converters=converter)
 
@@ -24,5 +19,5 @@ for index, row in df.iterrows():
 
 print(','.join(sql_texts))
 
-# f = open(os.getcwd() + '/data/sql.txt','w')
-# f.writelines(','.join(sql_texts))
+f = open(os.getcwd() + '/data/sql.txt','w')
+f.writelines(','.join(sql_texts))
