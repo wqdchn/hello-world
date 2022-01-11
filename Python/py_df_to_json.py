@@ -40,3 +40,17 @@ print(json.dumps(df[0:1].to_json(orient='records')))
 # "[{\"A\":\"1\",\"B\":\"20130102\",\"C\":1.0,\"D\":3,\"E\":\"test\",\"F\":\"foo\"}]"
 
 print(type(json.dumps(df[0:1].to_json(orient='records'))))
+
+for i in range(len(df)):
+    print('\'DATA_JSON\':' + str(js[i]))
+# 'DATA_JSON': {'A': '1', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'test', 'F': 'foo'}
+# 'DATA_JSON': {'A': '2', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'train', 'F': 'foo'}
+# 'DATA_JSON': {'A': '3', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'test', 'F': 'foo'}
+# 'DATA_JSON': {'A': '4', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'train', 'F': 'foo'}
+
+for i in range(len(df)):
+    print('{\'DATA_JSON\':' + str(js[i]) + '}')
+# {'DATA_JSON': {'A': '1', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'test', 'F': 'foo'}}
+# {'DATA_JSON': {'A': '2', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'train', 'F': 'foo'}}
+# {'DATA_JSON': {'A': '3', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'test', 'F': 'foo'}}
+# {'DATA_JSON': {'A': '4', 'B': '20130102', 'C': 1.0, 'D': 3, 'E': 'train', 'F': 'foo'}}
